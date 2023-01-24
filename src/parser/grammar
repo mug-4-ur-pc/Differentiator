@@ -1,0 +1,17 @@
+expression ::= expr_1
+
+expr_0 ::= expr_1 {["+" "-"] expr_1}*
+
+expr_1 ::= expr_2 {["*" "/"] expr_2}*
+
+expr_2 ::= term {"^" term}*
+
+function ::= ident "(" expression ")"
+
+term ::= ["+" "-"]? factor
+
+factor ::= {"(" expr_1 ")"} | function | ident | number
+
+ident ::= word which doesn't start with digit and doesm't contain '+', '-', '*', '/', '^', '(', ')' characters
+
+number ::= ['0'-'9']+
