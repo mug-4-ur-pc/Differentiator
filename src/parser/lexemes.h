@@ -3,7 +3,9 @@
  * @brief File which contains lexemes definitions.
  */
 
-#ifndef LEXEMES_H_
+#ifdef LEXEMES_H_
+#error lexemes.h can be included only one time.
+#endif
 #define LEXEMES_H_
 
 #include "parser.h"
@@ -60,8 +62,3 @@ LEX_TOK_MATCHING[] =
  * @brief Amount of operation lexemes.
  */
 static const size_t LEXEME_OP_AMOUNT = 5;
-
-
-
-
-#endif // not defined LEXEMES_H_

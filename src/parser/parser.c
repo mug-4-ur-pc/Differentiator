@@ -3,6 +3,8 @@
  * @brief File with recursive descent parser implementation.
  */
 
+#define GNU_SOURCE
+
 #include "../tree/token_specific.h"
 #include "../utilities/utilities.h"
 #include "lexemes.h"
@@ -14,7 +16,7 @@
 #include <ctype.h>
 #include <string.h>
 
-//TODO: Fix unary operation.
+
 
 
 static bintree_t parse_number        (parser_t* parser);
@@ -96,8 +98,8 @@ static bool get_lexeme_number
 )
 {
 	unsigned length = 0;
-	while (isdigit(str[length]))
-		++length;
+	double   tmp;
+	sscanf(str, "%lf%n", &tmp, (int*) &length);
 
 	if (isident(str[length]))
 	{

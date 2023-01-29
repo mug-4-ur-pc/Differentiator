@@ -1,0 +1,419 @@
+\documentclass[a4paper,oneside,final,12pt,russian]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{cmap}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{breqn}
+\setpapersize{A4}
+\setmarginsrb{2cm}{1.5cm}{1cm}{1.5cm}{0pt}{0mm}{0pt}{13mm}
+
+\usepackage{blindtext}
+\usepackage{setspace}
+\sloppy
+\hyphenpenalty=5000
+
+\usepackage{titling}
+\setlength{\droptitle}{-1cm}
+
+\title{\normalsize \bf РЕШЕНИЕ СЛОЖНЫХ ЗАДАЧ \\ НАХОЖДЕНИЕ ПРОИЗВОДНОЙ И ФОРМУЛЫ ТЕЙЛОРА}
+\author{\small Иванов Денис \\ Б05--132}
+
+\newcommand{\e}{\mathsf{e}}
+\begin{document}
+
+\maketitle
+
+Для разложения выражения $\operatorname{cos}(2.00 \cdot x ^{2.00 } ) + \operatorname{f}(\e ^{x } ) $ в ряд Тейлора нам нужно найти $3$ первых производных. Ну что ж, давайте сделаем это!
+По крайней мере попробуем)
+
+\section{}
+Давайте возьмём производную $\operatorname{cos}(2.00 \cdot x ^{2.00 } ) + \operatorname{f}(\e ^{x } ) $. Во имя котиков мы обязаны сделать это!
+
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Чему равна производная сложной функции?.. А хрен его знает.
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) )' = \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Притворимся, что знаем матан))
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(x ^{2.00 } )' = (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 .
+\end{dmath*}
+Тривиальный переход ~--- это всё, на что мы способны
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(2.00 \cdot x ^{2.00 } )' = 2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } .
+\end{dmath*}
+В СССР дети знали это с детского сада!
+\begin{dmath*}
+(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ).
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) + \operatorname{f}(\e ^{x } ) )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )+ \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+
+
+Благодаря интуиции поймём, что
+ \begin{dmath*}
+( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )+ \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00  = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x }  .
+\end{dmath*}
+
+Это было очень сложно. Не только лишь все способны 
+на это.
+
+\section{}
+Давайте возьмём производную $( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } $.
+
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Притворимся, что знаем матан))
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) ')' = \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) '\cdot \e ^{x } )' = \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Производная любого числа равна числу, не существующему в природе.
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(2.00 \cdot x )' = 2.00 \cdot 1.00 + 0.00 \cdot x .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(x ^{2.00 } )' = (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 .
+\end{dmath*}
+Производная любого числа равна числу, не существующему в природе.
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(2.00 \cdot x ^{2.00 } )' = 2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } .
+\end{dmath*}
+Раз, два, три, четыре, пять.\\ 
+Вышли скобки погулять.\\ 
+И поняли, вернувшись домой.\\ 
+Производную от аргумента взял кто-то другой.
+\begin{dmath*}
+(\operatorname{sin}(2.00 \cdot x ^{2.00 } ) )' = \operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ).
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(-\operatorname{sin}(2.00 \cdot x ^{2.00 } ) )' = -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )).
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 \cdot x )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 \cdot x .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } .
+\end{dmath*}
+
+
+Благодаря интуиции поймём, что
+ \begin{dmath*}
+( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x }  = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x }  .
+\end{dmath*}
+
+Здесь читатель может сделать небольшой перерыв 
+и пойти попить айрана.
+
+\section{}
+Давайте возьмём производную $( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } $. Во имя котиков мы обязаны сделать это!
+
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) '')' = \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } )' = \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } )' = \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + (\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } )\cdot \e ^{x } .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(\e ^{x } )' = \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) ')' = \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 .
+\end{dmath*}
+Ах если бы сложение стало делением, \\ 
+А, может, даже умножением! \\ 
+Вот было бы прекрасно,\\ 
+Если бы муссонные ветра дули не напрасно. \\ 
+Тогда может быть и был бы смысл в этой жизни,\\ 
+И равен бы он был морали этих строк, которой нет...\\ 
+Так о чём же это я? Да ни о чём, собственно говоря.
+Я просто хочу удалить этот файл с бессмыденным матаном 
+и никогда его больше не видеть. :(
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) '\cdot \e ^{x } )' = \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(\operatorname{f}(\e ^{x } ) '\cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } )' = \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + (\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } )\cdot \e ^{x } .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Производная любого числа равна числу, не существующему в природе.
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(2.00 \cdot x )' = 2.00 \cdot 1.00 + 0.00 \cdot x .
+\end{dmath*}
+Нарисуем кишечную палочку
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Тривиальный переход ~--- это всё, на что мы способны
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(2.00 \cdot x )' = 2.00 \cdot 1.00 + 0.00 \cdot x .
+\end{dmath*}
+Притворимся, что знаем матан))
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(x ^{2.00 } )' = (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 .
+\end{dmath*}
+Производная любого числа равна числу, не существующему в природе.
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(2.00 \cdot x ^{2.00 } )' = 2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } .
+\end{dmath*}
+В СССР дети знали это с детского сада!
+\begin{dmath*}
+(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ).
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )' = \operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )\cdot 2.00 \cdot x .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(-(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x ))' = -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )\cdot 2.00 \cdot x ).
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 \cdot x )' = ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )\cdot 2.00 \cdot x )) \cdot 2.00 \cdot x .
+\end{dmath*}
+Чему равна производная числа??? НОЛЬ, НОЛЬ, НОЛЬ!!!
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+Притворимся, что знаем матан))
+\begin{dmath*}
+(x )' = 1.00 .
+\end{dmath*}
+Согласно Википедии
+\begin{dmath*}
+(x ^{2.00 } )' = (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 .
+\end{dmath*}
+Тривиальный переход ~--- это всё, на что мы способны
+\begin{dmath*}
+(2.00 )' = 0.00 .
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(2.00 \cdot x ^{2.00 } )' = 2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } .
+\end{dmath*}
+В СССР дети знали это с детского сада!
+\begin{dmath*}
+(\operatorname{sin}(2.00 \cdot x ^{2.00 } ) )' = \operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ).
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(-\operatorname{sin}(2.00 \cdot x ^{2.00 } ) )' = -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )).
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 0.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 .
+\end{dmath*}
+А что если Господь создал этот мир только для того, 
+чтобы мы посчитали за него следующую производную:
+\begin{dmath*}
+(( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 \cdot x )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 0.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )\cdot 2.00 \cdot x )) \cdot 2.00 \cdot x .
+\end{dmath*}
+Легко догадаться, что
+\begin{dmath*}
+(( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } )' = ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 0.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )\cdot 2.00 \cdot x )) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + (\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } )\cdot \e ^{x } .
+\end{dmath*}
+
+
+Благодаря интуиции поймём, что
+ \begin{dmath*}
+( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 0.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } ))) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot (2.00 \cdot 1.00 + 0.00 \cdot x )+ ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot (2.00 \cdot (2.00 - 1.00 )\cdot x ^{2.00 - 1.00 } \cdot 1.00 + 0.00 \cdot x ^{2.00 } )\cdot 2.00 \cdot x )) \cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + (\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 + \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \operatorname{ln}(\e ) \cdot 1.00 \cdot \e ^{x } )\cdot \e ^{x }  = ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 + ( -(\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 \cdot x )) \cdot 2.00 + (\operatorname{cos}(2.00 \cdot x ^{2.00 } ) \cdot 2.00 - ( -\operatorname{sin}(2.00 \cdot x ^{2.00 } ) ) \cdot 2.00 \cdot x \cdot 2.00 \cdot x )\cdot 2.00 \cdot x + \operatorname{f}(\e ^{x } ) '\cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } + \operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } \cdot \e ^{x } + (\operatorname{f}(\e ^{x } ) ''\cdot \e ^{x } + \operatorname{f}(\e ^{x } ) '''\cdot \e ^{x } \cdot \e ^{x } )\cdot \e ^{x }  .
+\end{dmath*}
+
+Ух... Наконец-то мы сделали это!
+
+\section{}
+Таким образом, разложив функцию по Тейлору в точке $0.00$, получим следующее:
+\begin{dmath*}\operatorname{cos}(2.00 \cdot x ^{2.00 } ) + \operatorname{f}(\e ^{x } )  = 1.00 + \operatorname{f}(1.00 ) + \frac{\operatorname{f}(1.00 ) '}{1!} \cdot (x - 0.00)^1 + \frac{\operatorname{f}(1.00 ) '+ \operatorname{f}(1.00 ) ''}{2!} \cdot (x - 0.00)^2 + \frac{\operatorname{f}(1.00 ) '+ \operatorname{f}(1.00 ) ''+ \operatorname{f}(1.00 ) ''+ \operatorname{f}(1.00 ) ''+ \operatorname{f}(1.00 ) '''}{3!} \cdot (x - 0.00)^3 + o((x - 0.00)^3)\end{dmath*}
+
+Вот такая вот унылая фигня у нас получилась.
+
+Спасибо за внимание))
+\end{document}

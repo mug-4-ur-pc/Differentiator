@@ -6,6 +6,51 @@
 #include "token_specific.h"
 #include "bintree.h"
 
+#include <assert.h>
+#include <string.h>
+
+
+
+
+/*!
+ * @brief Recursively substitute all values.
+ *
+ * @return Tree with substitution.
+ */
+static bintree_t expr_substitute
+(
+	const bintree_t expr,        /*!< [in] input expression.                 */
+	double          substitution /*!< [in] substitution value.               */
+)
+{
+	token_t t = expr->value;
+	if (t.type == TOKEN_VAR && !strcmp(t.value.ident, "x"))
+	{
+		t.type         = TOKEN_NUMBER;
+		t.value.number = substitution;
+	}
+
+	bintree_t root = bintree_create(t);
+	if (!root)
+		return NULL;
+
+	if (expr->left)
+	{
+		bintree_hook_left(root, expr_substitute(expr->left, substitution));
+		if (!root->left)
+			return bintree_destroy(root);
+	}
+
+	if (expr->right)
+	{
+		bintree_hook_right(root, expr_substitute(expr->right, substitution));
+		if (!root->right)
+			return bintree_destroy(root);
+	}
+
+	return root;
+}
+
 
 
 
@@ -91,4 +136,19 @@ bintree_t create_func_node (bintree_t func, bintree_t arg)
 
 	bintree_hook_right(func, arg);
 	return func;
+}
+
+
+bintree_t create_number (double num)
+{
+	token_t token = {.type = TOKEN_NUMBER, .value.number = num};
+	return bintree_create_by_moving(token);
+}
+
+
+bintree_t expression_substitute (const bintree_t expr, double substitution)
+{
+	assert (expr);
+
+	return expr_substitute(expr, substitution);
 }

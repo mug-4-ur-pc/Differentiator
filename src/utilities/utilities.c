@@ -102,3 +102,10 @@ void clear_buffer (FILE* stream)
 	while (getc(stream) != '\n')
 		continue;
 }
+
+
+bool double_equal (double a, double b)
+{
+	double c = b - a;
+	return -DOUBLE_PRECISION < c && c < DOUBLE_PRECISION;
+}

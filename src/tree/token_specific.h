@@ -69,6 +69,27 @@ bintree_t create_func_node
 	bintree_t arg   /*!< [in] function's argument.                           */
 );
 
+/*!
+ * @brief Create node of number type.
+ *
+ * @return Created node or NULL if an error occurred.
+ */
+bintree_t create_number
+(
+	double num /*!< in] given number.                                        */
+);
+
+/*!
+ * @brief  Find expression value with substitution.
+ *
+ * @return Expression with substitution.
+ */
+bintree_t expression_substitute
+(
+	const bintree_t expr,        /*!< [in] input expression.                 */
+	double          substitution /*!< [in] substitution value.               */
+);
+
 
 
 

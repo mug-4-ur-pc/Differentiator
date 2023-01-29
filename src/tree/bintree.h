@@ -76,6 +76,16 @@ bintree_t bintree_destroy
 );
 
 /*!
+ * @brief Copy binary tree.
+ *
+ * @return Copied tree or NULL if an error has been occurred.
+ */
+bintree_t bintree_copy
+(
+	const bintree_t root /*!< [in] tree to copying.                          */
+);
+
+/*!
  * @brief Create and set the left child to new node.
  *
  * @node If node already has child node it will be freed.
@@ -160,7 +170,7 @@ void bintree_print
  * @brief Dump binary tree to .dot file and create .png file using GraphViz.
  */
 #define bintree_dump(BINTREE_)                                                \
-	bintree_dump_func_((BINTREE_), #BINTREE_, __LINE__, __func__, __FILE__)
+	bintree_dump_func_((BINTREE_), #BINTREE_, __LINE__, __func__, __FILENAME__)
 
 /*!
  * @brief Dump binary tree to .dot file and create .png file using GraphViz.
@@ -263,6 +273,28 @@ bintree_t bintree_insert_right
 	bintree_t* root,  /*!< [in,out] root of the binary tree.                 */
 	bintree_t  where, /*!< [in,out] place where node will be inserted.       */
 	bintree_t  node   /*!< [in,out] inserted node.                           */
+);
+
+/*!
+ * @brief Replace node and delete its children.
+ *
+ * @return Node which was substituted.
+ */
+bintree_t bintree_replace
+(
+	bintree_t what, /*!< [in,out] what should replace.                       */
+	bintree_t to    /*!< [in,out] to what should replace.                    */
+);
+
+/*!
+ * @brief Check two binary trees to equality.
+ *
+ * @return Equality of trees.
+ */
+bool bintree_equal
+(
+	const bintree_t a, /*!< [in] first tree.                                 */
+	const bintree_t b  /*!< [in] second tree.                                */
 );
 
 

@@ -32,12 +32,13 @@ token_type_t;
  */
 typedef enum
 {
-	OP_EMPTY = '\0',
+	OP_EMPTY = 'E',
 	OP_PLUS  = '+',
 	OP_MINUS = '-',
 	OP_MUL   = '*',
 	OP_DIV   = '/',
 	OP_POW   = '^',
+	OP_DERIV = '`',
 }
 operation_t;
 

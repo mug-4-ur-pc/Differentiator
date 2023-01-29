@@ -35,7 +35,7 @@ static bintree_t bintree_deserialize_
 	if (!node)
 		return NULL;
 
-	*curr_index = curr_ptr - str;
+	*curr_index = (size_t) (curr_ptr - str);
 	node->left = bintree_deserialize_(str, curr_index);
 
 	curr_ptr = strchr(str + *curr_index, '\"');
@@ -53,18 +53,18 @@ static bintree_t bintree_deserialize_
 
 	*node_end = '\0';
 	++curr_ptr;
-	size_t node_len = node_end - curr_ptr;
+	size_t node_len = (size_t) (node_end - curr_ptr);
 	BINTREE_VALUE_PARSE(node->value, curr_ptr, node_len);
 	*node_end   = '\"';
 	curr_ptr    = node_end + 1;
 
-	*curr_index = curr_ptr - str;
+	*curr_index = (size_t) (curr_ptr - str);
 	node->right = bintree_deserialize_(str, curr_index);
 	curr_ptr = strchr(str + *curr_index, '}');
 	if (!curr_ptr)
 		return bintree_destroy(node);
 
-	*curr_index = curr_ptr - str + 1;
+	*curr_index = (size_t) (curr_ptr - str + 1);
 
 	node->parent = NULL;
 	if (node->left)
@@ -249,6 +249,37 @@ bintree_t bintree_destroy (bintree_t head)
 	free(head);
 
 	return NULL;
+}
+
+
+bintree_t bintree_copy (const bintree_t root)
+{
+	if (!root)
+		return NULL;
+
+	bintree_t node = bintree_create(root->value);
+	if (!node)
+		return NULL;
+
+	if (root->left)
+	{
+		bintree_t lhs  = bintree_copy(root->left);
+		if (!lhs)
+			return bintree_destroy(node);
+
+		bintree_hook_left(node, lhs);
+	}
+	
+	if (root->right)
+	{
+		bintree_t rhs = bintree_copy(root->right);
+		if (!rhs)
+			return bintree_destroy(node);
+
+		bintree_hook_right(node, rhs);
+	}
+
+	return node;
 }
 
 
@@ -519,3 +550,45 @@ bintree_t bintree_insert_right (bintree_t* root,
 }
 
 
+bintree_t bintree_replace (bintree_t what, bintree_t to)
+{
+	assert (what);
+
+	if (what == to)
+		return what;
+
+	if (to->parent)
+	{
+		if (to->parent->left == to)
+			to->parent->left = NULL;
+		else
+			to->parent->right = NULL;
+	}
+
+	bintree_destroy(what->left);;
+	what->left = to->left;
+	to->left   = NULL;
+	if (what->left)
+		what->left->parent = what;
+
+	bintree_destroy(what->right);;
+	what->right = to->right;
+	to->right   = NULL;
+	if (what->right)
+		what->right->parent = what;
+
+	BINTREE_VALUE_MOVE(what->value, to->value);
+	bintree_destroy(to);
+	return what;
+}
+
+
+bool bintree_equal (const bintree_t a, const bintree_t b)
+{
+	if (!a || !b)
+		return a == b;
+
+	return BINTREE_VALUE_EQUAL(a->value, b->value)
+	       && bintree_equal(a->left,  b->left)
+	       && bintree_equal(a->right, b->right);
+}

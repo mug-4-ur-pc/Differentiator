@@ -195,7 +195,7 @@ bool token_copy (token_t* dest, const token_t* src)
 			return true;
 
 		case TOKEN_OP:
-			dest->value.operation = dest->value.operation;
+			dest->value.operation = src->value.operation;
 			return true;
 
 		case TOKEN_FUNC:
